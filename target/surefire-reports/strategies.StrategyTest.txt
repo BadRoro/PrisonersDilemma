@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: strategies.StrategyTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in strategies.StrategyTest
+strategies.StrategyTest.testAskAction  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+	at strategies.StrategyTest.testAskAction(StrategyTest.java:21)
+
+strategies.StrategyTest.testStrategy  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+	at strategies.StrategyTest.testStrategy(StrategyTest.java:16)
+
+strategies.StrategyTest.testGetOpponentLastAction  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+	at strategies.StrategyTest.testGetOpponentLastAction(StrategyTest.java:26)
+

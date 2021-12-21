@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+PrisonerDilema,game,Interaction,26,128,5,11,8,34,5,13,1,6
+PrisonerDilema,game,Turn,2,150,2,12,1,45,2,15,0,10
+PrisonerDilema,game,Player,4,147,1,7,1,44,1,20,0,17
+PrisonerDilema,game,Game,9,129,2,8,4,33,3,11,1,8
+PrisonerDilema,strategies,AlwaysBetray,0,5,0,0,0,2,0,2,0,2
+PrisonerDilema,strategies,Adapter,0,29,0,2,0,9,0,4,0,3
+PrisonerDilema,strategies,GiveGive,0,9,0,2,0,4,0,3,0,2
+PrisonerDilema,strategies,Action,0,15,0,0,0,2,0,1,0,1
+PrisonerDilema,strategies,AlwaysCollaborate,0,5,0,0,0,2,0,2,0,2

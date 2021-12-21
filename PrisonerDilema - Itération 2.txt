@@ -1,0 +1,13 @@
+Comment lancer le jeu : 
+Exécutez le main dans la classe game.
+
+MODIFICATION ITERATION 2 :
+- Ajout de la classe Interaction pour sortir les interractions de la classe player
+- Refactorisation des Strategies pour simplifier leurs implantations dans le code de l'autre groupe
+  Les stratégies prennent dorénavant la derniere action de l'adversaire pour appeler l'action courante
+- Ajout de la classe Adapter pour interpreter les strategies fournient par l'autre groupe.
+  Fonctionnel pour les classes BetrayStrategy et CollaborateStrategy mais impossible pour les autres strategies
+  car leur méthode ne prends pas des paramètres pour renvoyer un résultat (Decision) mais elle prend un paramètre pour 
+  indiquer ou écrire le résultat (via un setter) et utilise des getters pour naviguer d'abord dans le RestServer puis dans
+  game etc etc. Il ne m'est donc pas possible de simuler la logique de leurs méthodes. J'attends qu'ils trouvent le temps de 
+  le modifier.

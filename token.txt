@@ -1,0 +1,6 @@
+7614a186c22640708f00d0f6db10e4698a92748e
+
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=PrisonerDilema \
+  -Dsonar.host.url=http://im2ag-sonar.u-ga.fr:9000 \
+  -Dsonar.login=7614a186c22640708f00d0f6db10e4698a92748e

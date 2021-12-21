@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PrisonerDilema</a> &gt; <a href="index.source.html" class="el_package">game</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package game;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import strategies.Action;
+import strategies.GiveGive;
+import strategies.Strategy;
+
+public class Player {
+    private int number;
+<span class="fc" id="L12">    private int scoreTotal = 0;</span>
+    private List&lt;Turn&gt; turnList;
+<span class="fc" id="L14">    private boolean isPlaying = true;</span>
+<span class="fc" id="L15">    private Strategy myStrategy = new GiveGive();</span>
+<span class="fc" id="L16">    Interaction interactionPlayer = new Interaction(this);</span>
+
+<span class="fc" id="L18">    public Player(int number) {</span>
+<span class="fc" id="L19">	this.number = number;</span>
+<span class="fc" id="L20">	this.scoreTotal = 0;</span>
+<span class="fc" id="L21">	this.turnList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">    }</span>
+
+    public Action askAction() {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">	if (isPlaying) {</span>
+<span class="fc" id="L26">	    printInformation();</span>
+<span class="fc" id="L27">	    return interactionPlayer.askAction();</span>
+	} else {
+<span class="fc" id="L29">	    return this.myStrategy.askAction(getOpponentLastAction());</span>
+	}
+    }
+
+    public void printInformation() {
+<span class="fc" id="L34">	String lastAction = opponenentLastActionToString();</span>
+<span class="fc" id="L35">	System.out.println(&quot;[Joueur &quot; + number + &quot;] : Votre scrore est &quot; + getScore()</span>
+		+ &quot; la derniere action de l'adversaire est : &quot; + lastAction
+		+ &quot;\nQue voulez vous faire? 1 - Collaborer / 2 - Trahir / 3 - Abandonner&quot;);
+<span class="fc" id="L38">    }</span>
+
+    private String opponenentLastActionToString() {
+	String lastAction;
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">	if (turnList.isEmpty()) {</span>
+<span class="fc" id="L43">	    lastAction = &quot;Pas d'action precedente&quot;;</span>
+	} else {
+<span class="nc" id="L45">	    lastAction = getOpponentLastAction().toString();</span>
+	}
+<span class="fc" id="L47">	return lastAction;</span>
+    }
+
+    public void addScore(int points) {
+<span class="fc" id="L51">	this.scoreTotal += points;</span>
+<span class="fc" id="L52">    }</span>
+
+    public void addTurn(Turn lastTurn) {
+<span class="fc" id="L55">	turnList.add(lastTurn);</span>
+<span class="fc" id="L56">    }</span>
+
+    public Turn getLastTurn() {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">	if (!turnList.isEmpty()) {</span>
+<span class="fc" id="L60">	    return turnList.get(turnList.size() - 1);</span>
+	} else {
+<span class="fc" id="L62">	    return null;</span>
+	}
+    }
+
+    public Action getOpponentLastAction() {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">	if (this.getLastTurn() != null) {</span>
+<span class="fc" id="L68">	    return this.getLastTurn().getOpponentLastAction(this);</span>
+	} else {
+<span class="fc" id="L70">	    return null;</span>
+	}
+    }
+
+    public int getNumber() {
+<span class="fc" id="L75">	return number;</span>
+    }
+
+    public int getScore() {
+<span class="fc" id="L79">	return scoreTotal;</span>
+    }
+
+    public boolean getIsPlaying() {
+<span class="fc" id="L83">	return isPlaying;</span>
+    }
+
+    public Strategy getMyStrategy() {
+<span class="fc" id="L87">	return myStrategy;</span>
+    }
+
+    public void leave() {
+<span class="fc" id="L91">	isPlaying = false;</span>
+<span class="fc" id="L92">    }</span>
+
+    public void reset() {
+<span class="fc" id="L95">	this.scoreTotal = 0;</span>
+<span class="fc" id="L96">	this.myStrategy = null;</span>
+<span class="fc" id="L97">	this.isPlaying = true;</span>
+<span class="fc" id="L98">	this.turnList.clear();</span>
+<span class="fc" id="L99">    }</span>
+
+    public void setMyStrategy(Strategy myStrategy) {
+<span class="fc" id="L102">	this.myStrategy = myStrategy;</span>
+<span class="fc" id="L103">    }</span>
+
+    public int askNbTurn() {
+<span class="fc" id="L106">	return interactionPlayer.askNbTurn();</span>
+    }
+
+    public boolean playAgain() {
+<span class="fc" id="L110">	return interactionPlayer.playAgain();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
