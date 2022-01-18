@@ -1,6 +1,6 @@
-projectKey=badino.marino:PrisonerDilema
+projectKey=badino.marino:PrisonersDilemma
 serverUrl=http://im2ag-sonar.u-ga.fr:9000
 serverVersion=9.1.0.47736
-dashboardUrl=http://im2ag-sonar.u-ga.fr:9000/dashboard?id=badino.marino%3APrisonerDilema
-ceTaskId=AX3TsBtfnFGfEKMpHLZM
-ceTaskUrl=http://im2ag-sonar.u-ga.fr:9000/api/ce/task?id=AX3TsBtfnFGfEKMpHLZM
+dashboardUrl=http://im2ag-sonar.u-ga.fr:9000/dashboard?id=badino.marino%3APrisonersDilemma
+ceTaskId=AX5ugguQHdtlmEu6Nyqk
+ceTaskUrl=http://im2ag-sonar.u-ga.fr:9000/api/ce/task?id=AX5ugguQHdtlmEu6Nyqk
